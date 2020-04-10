@@ -1,0 +1,15 @@
+﻿@using iitu.web.example.Controllers
+
+
+<h1 class="title is-1">Hello from view with style</h1>
+<ul class="list">
+    @foreach (var std in (IList<Student>) ViewData["students"])
+    {
+        <li class="list-item">
+            <h2>Name: @std.Name</h2>
+            <h3>DOB: @std.DOB</h3>
+            <h3>Group number: @std.GroupNumber</h3>
+            @Html.ActionLink("Code: " + @std.GetCode(), "GetStudent", "Students", new {code = "@std.GetCode()"}, new {@class = "link"})
+        </li>
+    }
+</ul>
